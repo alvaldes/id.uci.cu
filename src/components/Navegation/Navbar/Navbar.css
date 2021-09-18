@@ -1,0 +1,19 @@
+.Navbar{
+    height: 100px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-right: 25px;
+    box-sizing: border-box;
+}
+.Navbar nav{
+    height: 100%;
+}
+.Navbar img{
+    height: 70%;
+    padding-top: 10px;
+}
