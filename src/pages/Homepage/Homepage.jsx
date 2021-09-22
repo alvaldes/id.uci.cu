@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 import { Button, Box } from '@mui/material'
 
 
-function Home() {
+function Homepage() {
   return (
     <div>
       <ThemeProvider theme={theme}>
@@ -42,5 +42,5 @@ function Home() {
   );
 }
 
-export default Home;
+export default Homepage;
   

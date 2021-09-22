@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
-import Homepage from './pages/Homepage'
+import Homepage from './pages/Homepage/Homepage.jsx'
 import Catalogue from './pages/Catalogue'
 import Consumption from './pages/Consumption'
 import Courses from './pages/Courses'
@@ -26,5 +26,5 @@ function App() {
       </Switch>
     </BrowserRouter>
   );
-
+}
 export default App;
