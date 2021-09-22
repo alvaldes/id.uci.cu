@@ -1,7 +1,7 @@
 import React from 'react';
 import './Navbar.css';
 
-import {AppBar, Toolbar, Typography,Box, Button} from '@mui/material'
+import {AppBar, Toolbar, Typography,Box, Button, Fab } from '@mui/material'
 import {Menu, Fingerprint} from '@mui/icons-material';
 import IconButton from '@mui/material/IconButton'
 
@@ -25,13 +25,22 @@ const Navbar = () => {
                 >
                     <Menu color='therty'/>
                 </IconButton> */}
-                <Box mr={2} sx={{flexGrow: 1, display: 'flex', flexDirection: 'row-reverse' }}>
+                <Box mr={2} mt={3} sx={{flexGrow: 1, display: 'flex', flexDirection: 'row-reverse' }}>
                     
                     <NavigationItems/>
                 </Box>
-                <Button variant="outlined" color="therty" endIcon={<Fingerprint />}>
+                <Fab 
+                variant="extended" 
+                size="small" 
+                color="therty" 
+                sx={{ px: 4, py: 1, ml: 3, mt:2 }} 
+                href="/login">
+                    Login
+                    <Fingerprint sx={{ ml: 1 }}/>
+                </Fab>
+                {/* <Button variant="outlined" color="therty" endIcon={<Fingerprint />}>
                 Login
-                </Button>
+                </Button> */}
             </Toolbar>
             </AppBar>
         </Box>
