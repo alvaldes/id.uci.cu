@@ -3,30 +3,33 @@ import './Navbar.css';
 
 import {AppBar, Toolbar, Typography,Box, Button} from '@mui/material'
 import {Menu, Fingerprint} from '@mui/icons-material';
+import IconButton from '@mui/material/IconButton'
 
 import { ButtonN } from '@nextui-org/react';
-import LogoImage from "../../../assets/images/logo.png";
-import IconButton from '@mui/material/IconButton'
+import Logo from "../../Logo/Logo";
+import NavigationItems from '../NavigationItems/NavigationItems'
+
 
 
 const Navbar = () => {
     return (
         <Box sx={{ flexGrow: 1 }}>
-            <AppBar position="static">
+            <AppBar className='Navbar' position="static" color='transparent' sx={{boxShadow:0}}>
             <Toolbar>
-                <IconButton 
+                <Logo class='logoNavbar'/>
+                {/* <IconButton 
                     size="large"
                     edge="start"
-                    color="inherit"
                     aria-label="menu"
                     sx={{ mr: 2 }}
                 >
-                    <Menu/>
-                </IconButton>
-                <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                LOGO
-                </Typography>
-                <Button variant="outlined" color="inherit" endIcon={<Fingerprint />}>
+                    <Menu color='therty'/>
+                </IconButton> */}
+                <Box mr={2} sx={{flexGrow: 1, display: 'flex', flexDirection: 'row-reverse' }}>
+                    
+                    <NavigationItems/>
+                </Box>
+                <Button variant="outlined" color="therty" endIcon={<Fingerprint />}>
                 Login
                 </Button>
             </Toolbar>
