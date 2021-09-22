@@ -1,0 +1,14 @@
+.fondoNot{
+  background-image: url("../../assets/images/NotFound.png");
+  background-color: #202A62;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  height: 100%;
+  }
+  .centrar{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  }
