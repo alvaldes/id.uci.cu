@@ -41,7 +41,7 @@ class App extends Component {
           < Route exact path="/catalogue" component={Catalogue} />
           < Route exact path="/consumption" component={Consumption} />
           < Route exact path="/courses" component={Courses} />
-          < Route exact path="/places" component={Places} />
+          < Route exact path="/map" component={Places} />
           < Route exact path="/production" component={Production} />
           < Route exact path="/professors" component={Professors} />
           < Route exact path="/publications" component={Publications} />
