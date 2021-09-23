@@ -7,10 +7,10 @@ const navigationItems = () => (
         <NavigationItem link="/" active>
             Home
         </NavigationItem>
-        <NavigationItem link="/map">
+        <NavigationItem link="/places">
             Map
         </NavigationItem>
-        <NavigationItem link="/datasets">
+        <NavigationItem link="/catalogue">
             Datasets
         </NavigationItem>
         <NavigationItem link="/about">
