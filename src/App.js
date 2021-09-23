@@ -2,15 +2,14 @@ import React, {Component} from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 import Homepage from './pages/Homepage/Homepage.jsx'
-import Catalogue from './pages/Catalogue'
-import Consumption from './pages/Consumption'
-import Courses from './pages/Courses'
-import Places from './pages/Places'
-import Production from './pages/Production'
-import Professors from './pages/Professors'
-import Publications from './pages/Publications'
+import Catalogue from './pages/Catalogue/Catalogue'
+import Consumption from './pages/Consumption/Consumption'
+import Courses from './pages/Courses/Courses'
+import Places from './pages/Places/Places'
+import Production from './pages/Production/Production'
+import Professors from './pages/Professors/Professors'
+import Publications from './pages/Publications/Publications'
 import NotFound from './pages/NotFound/NotFound.jsx'
-import { height } from '@mui/system'
 
 class App extends Component {
   constructor(props) {
@@ -18,20 +17,20 @@ class App extends Component {
     this.state = { width: 0, height: 0 };
     this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
   }
-  
+
   componentDidMount() {
     this.updateWindowDimensions();
     window.addEventListener('resize', this.updateWindowDimensions);
   }
-  
+
   componentWillUnmount() {
     window.removeEventListener('resize', this.updateWindowDimensions);
   }
-  
+
   updateWindowDimensions() {
     this.setState({ width: window.innerWidth, height: window.innerHeight });
   }
-  
+
   render(){
     let height = this.state.height;
     return (
