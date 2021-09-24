@@ -1,0 +1,86 @@
+.Modal{
+    margin: 0 450px;
+    width: 350px;
+    height: 200px;
+    margin-top: 100px;
+    position: absolute;
+    padding: 25px 35px;
+    border-radius: 25px;
+}
+
+.Aggregate {
+    width: 100%;
+    height: 100%;
+    background: 
+    rgba(0,0,0,0);
+    position: fixed;
+    top: 0;
+}
+
+.Label {
+    float: left;
+    width: 30%;
+    margin: 11px 5px 5px 5px;
+}
+
+.Input{
+    float: left;
+    width: 55%;
+    margin: 5px 5px 15px 5px;
+    padding: 5px 10px;
+    border: solid 2px transparent;
+    border-radius: 15px;
+}
+
+.Input:hover{
+    border-color: transparent;
+}
+
+.ModalItem {
+    text-align: right;
+}
+
+.ButtonSuccess {
+    color: #ffffff !important;
+    border-color:#ffffff !important;
+}
+
+.ButtonSuccess:hover {
+    color: #ffff;
+    background: #28a745;
+    border-color: #28a745;
+}
+
+.ButtonDanger {
+    color: #ffffff !important;
+    border-color:#ffffff !important;
+}
+
+.ButtonDanger:hover {
+    color: #ffffff;
+    background: #dc3545;
+    border-color: #dc3545;
+}
+
+.Button {
+    display: inline-block;
+    background: transparent;
+    font-weight: 300;
+    text-align: center;
+    border: 1px solid transparent;
+    width: 45px;
+    height: 45px;
+    border-radius: 100px;
+    margin: 2.5px auto;
+    line-height: 1.3;
+    padding: 4px 6px 1px 6px;
+    margin-top: 15px;
+}
+
+.Divider{
+    margin-right: 60px;
+}
+
+.ModalButtons{
+    text-align: center;
+}

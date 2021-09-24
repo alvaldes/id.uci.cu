@@ -2,7 +2,7 @@ import React from 'react';
 import './Navbar.css';
 
 import {AppBar, Toolbar, Typography,Box, Button, Fab } from '@mui/material'
-import {Menu, Fingerprint} from '@mui/icons-material';
+import {Menu, Fingerprint } from '@mui/icons-material';
 import IconButton from '@mui/material/IconButton'
 
 import { ButtonN } from '@nextui-org/react';
