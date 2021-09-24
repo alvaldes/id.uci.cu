@@ -1,5 +1,16 @@
-import React from "react";
+import React from 'react'
+import MiniDrawer from "../../components/Navegation/Drawer/MiniDrawer";
+import Typography from '@mui/material/Typography';
 
-const Places = () => <h1>Lugares</h1>
-
+export const Places = () => {
+    return (
+        <div>
+            <MiniDrawer>
+            <Typography variant='h3'>
+               LUGARES
+            </Typography>
+            </MiniDrawer>
+        </div>
+    );
+}
 export default Places

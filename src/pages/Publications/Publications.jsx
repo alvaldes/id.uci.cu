@@ -1,5 +1,13 @@
 import React from "react";
+import MiniDrawer from "../../components/Navegation/Drawer/MiniDrawer";
+import Typography from '@mui/material/Typography';
 
-const Publications = () => <h1>Publicaciones</h1>
-
+function Publications (){
+    return(
+        <MiniDrawer>
+    <Typography variant='h3'>
+        Publicaciones
+    </Typography>
+    </MiniDrawer>
+    );}
 export default Publications
