@@ -26,7 +26,6 @@ const Navbar = () => {
                     <Menu color='therty'/>
                 </IconButton> */}
                 <Box mr={2} mt={3} sx={{flexGrow: 1, display: 'flex', flexDirection: 'row-reverse' }}>
-                    
                     <NavigationItems/>
                 </Box>
                 <Fab 
