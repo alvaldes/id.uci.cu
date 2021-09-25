@@ -10,6 +10,7 @@ import Production from './pages/Production/Production'
 import Professors from './pages/Professors/Professors'
 import Publications from './pages/Publications/Publications'
 import NotFound from './pages/NotFound/NotFound.jsx'
+import loguin from './components/loguin/loguin.jsx';
 
 class App extends Component {
   constructor(props) {
@@ -44,6 +45,7 @@ class App extends Component {
           < Route exact path="/production" component={Production} />
           < Route exact path="/professors" component={Professors} />
           < Route exact path="/publications" component={Publications} />
+          < Route exact path="/login" component={loguin} />
           < Route ><NotFound height={this.state.height}/></Route>
         </Switch>
       </BrowserRouter>
