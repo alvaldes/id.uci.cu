@@ -6,31 +6,28 @@ import ModalLabel from './ModalLabel/ModalLabel'
 
 import { Check, Close } from '@mui/icons-material'
 
-const Modal = (theme) => {
+const Modal = () => {
     return (
-        <Box class="Aggregate">
-            <Box
-                class="Modal"
-                bgcolor='red'
-            >
-                <Box class="ModalItem">
-                    <label class="Label"> Nombre: </label>
-                    <input class="Input"></input>
+        <Box className="Aggregate" sx={{backgroundColor:'#202A62'}}>
+            <Box className="Modal" bgcolor= 'red'>
+                <Box className="ModalItem">
+                    <label className="Label"> Nombre: </label>
+                    <input className="Input"></input>
                 </Box>
-                <Box class="ModalItem">
-                    <label class="Label"> Nombre: </label>
-                    <input class="Input" ></input>
+                <Box className="ModalItem">
+                    <label className="Label"> Nombre: </label>
+                    <input className="Input" ></input>
                 </Box>
-                <Box class="ModalItem">
-                    <label class="Label"> Nombre: </label>
-                    <input class="Input"
+                <Box className="ModalItem">
+                    <label className="Label"> Nombre: </label>
+                    <input className="Input"
                     ></input>
                 </Box>
-                <Box class="ModalButtons">
-                    <button class="Button ButtonSuccess Divider">
+                <Box className="ModalButtons">
+                    <button className="Button ButtonSuccess Divider">
                         <Check />
                     </button>
-                    <button class="Button ButtonDanger">
+                    <button className="Button ButtonDanger">
                         <Close />
                     </button>
                 </Box>
