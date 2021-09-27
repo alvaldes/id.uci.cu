@@ -39,10 +39,12 @@ import PersonIcon from '@mui/icons-material/Person';
 import ArticleIcon from '@mui/icons-material/Article';
 import {Fab} from '@mui/material'
 import {Fingerprint} from '@mui/icons-material';
+import {Link,Route} from 'react-router-dom';
+import Catalogue from '../../../pages/Catalogue/Catalogue';
 
 
 
-
+const preventDefault = (event) => event.preventDefault();
 //grid de los iconos del final del nav bar
 const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
@@ -175,16 +177,16 @@ export default function MiniDrawer(props) {
 
 
   // const theme = useTheme(); no activar jamas o pierde el tema
-
-  const [open, setOpen] = React.useState(false);
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
+//inverti esto pa que quedara abierto x default 
+  const [open, setOpen] = React.useState(true);
   const handleDrawerClose = () => {
     setOpen(false);
   };
+  const handleDrawerOpen = () => {
+    setOpen(true);
+  };
 
-  const [openB, setOpenB] = React.useState(false);
+  const [openB, setOpenB] = React.useState(true);
  const handleClickB = () => {
     setOpenB(!openB);
   };
@@ -251,11 +253,7 @@ export default function MiniDrawer(props) {
         <Divider />
         <List  sx={{ width: '100%', maxWidth: 360 }}
 
-      // subheader={
-      //   <ListSubheader component="div" id="nested-list-subheader">
-
-      //   </ListSubheader>
-      // }
+        onClick={preventDefault}
       >
                 <ListItemButton component="a" href='/'  >
                     <ListItemIcon >
@@ -275,58 +273,68 @@ export default function MiniDrawer(props) {
                     </ListItemText>
                 </ListItemButton>
                   {/* Lista anidada */}
-                <ListItemButton  onClick={handleClickB}>
-                    <ListItemIcon color='therty'>
+                  <ListItemButton component={Link} to="/catalogue">
+                     <ListItemIcon color='therty'>
                         <LibraryBooksIcon color='therty'/>
-                        {openB ? <ExpandLess color='therty' /> : <ExpandMore color='therty' />}
-                    </ListItemIcon >
-                    <ListItemText color='therty'>
+                     </ListItemIcon >
+                     <ListItemText color='therty'>
                         Datasets
-                    </ListItemText>
+                     </ListItemText>
+                   
+                    <IconButton  onClick={handleClickB} sx={{':hover': {backgroundColor:'primary.light'}}}>
+                    {openB ? <ExpandLess color='therty' /> : <ExpandMore color='therty' />}
+                    </IconButton>
                 </ListItemButton>
                 <Collapse in={openB} timeout="auto" unmountOnExit>
-                        <List component="div" disablePadding >
-                                <ListItemButton sx={{ pl: 4 }} component="a" href='/Consumption'>
+
+                        <List component="div" disablePadding  sx={{
+                        typography:'& > :not(style) + :not(style)'}}>
+                        
+                     
+                                <ListItemButton sx={{ pl: 4 }}  component={Link} to="/consumption">
                                      <ListItemIcon>
                                      <ElectricalServicesIcon color="therty"/>
                                      </ListItemIcon>
-                                     <ListItemText primary="therty" />
+                                     <ListItemText primary="Consumo" />
                                 </ListItemButton>
-
-                                <ListItemButton sx={{ pl: 4 }}  component="a" href='/Courses'>
+                                
+                                
+                                <ListItemButton sx={{ pl: 4 }} component={Link} to="/courses" >
                                      <ListItemIcon>
                                      <MenuBookIcon color="therty" />
                                      </ListItemIcon>
                                     <ListItemText primary="Cursos" />
                                 </ListItemButton>
-
-                                <ListItemButton sx={{ pl: 4 }} component="a" href='/places'>
-                                     <ListItemIcon>
-                                     <MapIcon color="therty"/>
-                                     </ListItemIcon>
-                                     <ListItemText primary="Lugares" />
-                                </ListItemButton>
-
-                                <ListItemButton sx={{ pl: 4 }} component="a" href='/Production'>
+                                
+                                    <ListItemButton sx={{ pl: 4 }} component={Link} to="/places">
+                                        <ListItemIcon>
+                                        <MapIcon color="therty"/>
+                                        </ListItemIcon>
+                                        <ListItemText primary="Lugares" />
+                                    </ListItemButton>
+                                
+                                <ListItemButton sx={{ pl: 4 }}component={Link} to="/production">
                                      <ListItemIcon>
                                      <LaptopIcon color="therty"/>
                                      </ListItemIcon>
                                      <ListItemText primary="Produccion" />
                                 </ListItemButton>
-
-                                <ListItemButton sx={{ pl: 4 }}  component="a" href='/Professors'>
+                                
+                                <ListItemButton sx={{ pl: 4 }} component={Link} to="/professors" >
                                      <ListItemIcon>
                                      < PersonIcon color="therty" />
                                      </ListItemIcon>
                                      <ListItemText primary="Profesores" />
                                 </ListItemButton>
+                                
 
-                                <ListItemButton sx={{ pl: 4 }} component="a" href='/Publications'>
+                                <ListItemButton sx={{ pl: 4 }}component={Link} to="/publications">
                                      <ListItemIcon>
                                      <ArticleIcon color="therty" />
                                      </ListItemIcon>
                                      <ListItemText primary="Publicaciones" />
                                 </ListItemButton>
+                              
                                 </List>
                                 </Collapse>
 
@@ -347,6 +355,7 @@ export default function MiniDrawer(props) {
         <DrawerHeader/>
         {props.children}
       </Box>
+      
     </Box>
     </ThemeProvider>
   );

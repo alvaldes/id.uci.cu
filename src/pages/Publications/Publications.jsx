@@ -1,6 +1,7 @@
 import React from "react";
-import MiniDrawer from "../../components/Navegation/Drawer/MiniDrawer";
 import Typography from '@mui/material/Typography';
+import MiniDrawer from '../../components/Navegation/Drawer/MiniDrawer.jsx'
+
 
 function Publications (){
     return(
