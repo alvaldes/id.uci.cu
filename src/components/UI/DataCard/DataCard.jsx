@@ -4,11 +4,13 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
+import {Link} from 'react-router-dom';
+
 
 const DataCard = (props) => {
   return (
     <Card sx={{ maxWidth: 345 }} elevation={6}>
-      <CardActionArea href={props.ruta}>
+      <CardActionArea component= {Link} to={props.ruta}>
         <CardMedia
           component="img"
           height="140"
