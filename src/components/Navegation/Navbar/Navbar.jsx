@@ -8,6 +8,7 @@ import IconButton from '@mui/material/IconButton'
 import { ButtonN } from '@nextui-org/react';
 import Logo from "../../Logo/Logo";
 import NavigationItems from '../NavigationItems/NavigationItems'
+import {Link} from 'react-router-dom';
 
 
 
@@ -16,7 +17,9 @@ const Navbar = () => {
         <Box sx={{ flexGrow: 1 }}>
             <AppBar className='Navbar' position="static" color='transparent' sx={{boxShadow:0}}>
             <Toolbar>
-                <Logo class='logoNavbar'/>
+                <Box>
+                    <Logo class='logoNavbar'/>
+                </Box>
                 {/* <IconButton 
                     size="large"
                     edge="start"
@@ -33,7 +36,7 @@ const Navbar = () => {
                 size="small" 
                 color="therty" 
                 sx={{ px: 4, py: 1, ml: 3, mt:2 }} 
-                href="/login">
+                component={Link} to="/login">
                     Login
                     <Fingerprint sx={{ ml: 1 }}/>
                 </Fab>
