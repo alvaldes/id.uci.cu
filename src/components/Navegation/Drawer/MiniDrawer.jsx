@@ -215,8 +215,8 @@ export default function MiniDrawer(props) {
           {/* <Typography Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           UCId
           </Typography> */}
-          <Box  component="div" sx={{ flexGrow: 1 }}>
-          <Logo class= 'logoDrawer'/>
+          <Box sx={{ flexGrow: 1 }}>
+            <Logo class= 'logoDrawer'/>
           </Box >
           <Search>
           <SearchIconWrapper>
@@ -236,7 +236,7 @@ export default function MiniDrawer(props) {
                 size="small" 
                 color="therty" 
                 sx={{ px: 4}} 
-                href="/login">
+                component={Link} to="/login">
                     Login
                     <Fingerprint sx={{ ml: 1 }}/>
                 </Fab>
