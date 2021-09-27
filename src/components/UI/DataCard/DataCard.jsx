@@ -3,12 +3,12 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { CardActionArea } from '@mui/material';
+import { Button, CardActionArea, CardActions } from '@mui/material';
 
 const DataCard = (props) => {
   return (
     <Card sx={{ maxWidth: 345 }} elevation={6}>
-      <CardActionArea>
+      <CardActionArea href={props.ruta}>
         <CardMedia
           component="img"
           height="140"
@@ -16,7 +16,7 @@ const DataCard = (props) => {
           alt= {props.alt}
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="div" sx={{color:'#202A62'}}>
+          <Typography gutterBottom variant="h5" component="div" sx={{color:'primary'}}>
             {props.title}
           </Typography>
           <Typography variant="body2" color="text.secondary">
@@ -24,6 +24,11 @@ const DataCard = (props) => {
           </Typography>
         </CardContent>
       </CardActionArea>
+      <CardActions sx={{ justifyContent: 'flex-end' }}>
+        <Button size="small" color="secondary">
+          Más
+        </Button>
+      </CardActions>
     </Card>
   );
 }
