@@ -255,7 +255,7 @@ export default function MiniDrawer(props) {
 
         onClick={preventDefault}
       >
-                <ListItemButton component="a" href='/'  >
+                <ListItemButton component={Link} to='/'  >
                     <ListItemIcon >
                         <HomeIcon color='therty'/>
                     </ListItemIcon >
@@ -264,7 +264,7 @@ export default function MiniDrawer(props) {
                     </ListItemText>
                 </ListItemButton>
 
-                <ListItemButton component="a" href='/places'  >
+                <ListItemButton component={Link} to='/places'  >
                     <ListItemIcon color='therty'>
                         <RoomIcon color='therty'/>
                     </ListItemIcon >
@@ -339,7 +339,7 @@ export default function MiniDrawer(props) {
                                 </Collapse>
 
                   {/* fin de lista anidada */}
-                <ListItemButton component="a" href='/about'>
+                <ListItemButton component={Link} to='/about'>
                     <ListItemIcon color="therty">
                         <InfoIcon color="therty"/>
                     </ListItemIcon >
