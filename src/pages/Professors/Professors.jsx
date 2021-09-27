@@ -1,6 +1,6 @@
 import React from "react";
-import MiniDrawer from "../../components/Navegation/Drawer/MiniDrawer";
 import Typography from '@mui/material/Typography';
+import MiniDrawer from '../../components/Navegation/Drawer/MiniDrawer.jsx'
 
 function Professors (){
     return(
@@ -9,5 +9,6 @@ function Professors (){
     Professors
     </Typography>
     </MiniDrawer>
-    );}
+    );
+}
 export default Professors

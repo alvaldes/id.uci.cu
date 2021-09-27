@@ -37,7 +37,14 @@ import MapIcon from '@mui/icons-material/Map';
 import LaptopIcon from '@mui/icons-material/Laptop';
 import PersonIcon from '@mui/icons-material/Person';
 import ArticleIcon from '@mui/icons-material/Article';
+import {Fab} from '@mui/material'
+import {Fingerprint} from '@mui/icons-material';
+import {Link,Route} from 'react-router-dom';
+import Catalogue from '../../../pages/Catalogue/Catalogue';
 
+
+
+const preventDefault = (event) => event.preventDefault();
 //grid de los iconos del final del nav bar
 const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
@@ -57,7 +64,7 @@ const openedMixin = (theme) => ({
   }),
   overflowX: 'hidden',
   backgroundColor: '#202A62',
-  color: '#CF9314',
+  color: '#A3A8CB',
 });
 
 const closedMixin = (theme) => ({
@@ -67,7 +74,7 @@ const closedMixin = (theme) => ({
   }),
   overflowX: 'hidden',
   backgroundColor: '#202A62',
-  color: '#CF9314',
+  color: '#A3A8CB',
   width: `calc(${theme.spacing(7)} + 1px)`,
   [theme.breakpoints.up('sm')]: {
     width: `calc(${theme.spacing(9)} + 1px)`,
@@ -107,7 +114,8 @@ const AppBar = styled(MuiAppBar, {
 const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
   ({ theme, open }) => ({
     width: drawerWidth,
-    background: '#202A62',
+    //  background: '#202A62',
+    
     flexShrink: 0,
     whiteSpace: 'nowrap',
     boxSizing: 'border-box',
@@ -125,7 +133,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 // Metodos del Search
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
-  borderRadius: theme.shape.borderRadius,
+  borderRadius: '40px',
   backgroundColor: alpha(theme.palette.common.white, 0.15),
   '&:hover': {
     backgroundColor: alpha(theme.palette.common.white, 0.25),
@@ -169,16 +177,16 @@ export default function MiniDrawer(props) {
 
 
   // const theme = useTheme(); no activar jamas o pierde el tema
-
-  const [open, setOpen] = React.useState(false);
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
+//inverti esto pa que quedara abierto x default 
+  const [open, setOpen] = React.useState(true);
   const handleDrawerClose = () => {
     setOpen(false);
   };
+  const handleDrawerOpen = () => {
+    setOpen(true);
+  };
 
-  const [openB, setOpenB] = React.useState(false);
+  const [openB, setOpenB] = React.useState(true);
  const handleClickB = () => {
     setOpenB(!openB);
   };
@@ -191,7 +199,7 @@ export default function MiniDrawer(props) {
       <AppBar position="fixed" open={open}>
         <Toolbar>
           <IconButton
-            color='secondary'
+           color="therty"
             aria-label="open drawer"
             onClick={handleDrawerOpen}
             edge="start"
@@ -219,108 +227,123 @@ export default function MiniDrawer(props) {
           />
           </Search>
 
-          <Button variant= 'contained' color='secondary' sx={{mr:2}}>
+          {/* <Button variant= 'contained' color='therty' sx={{mr:2}} borderRadius='90%' >
           Login
           </Button>
-          <AccountCircleIcon/>
+          <AccountCircleIcon/> */}
+          <Fab 
+                variant="extended" 
+                size="small" 
+                color="therty" 
+                sx={{ px: 4}} 
+                href="/login">
+                    Login
+                    <Fingerprint sx={{ ml: 1 }}/>
+                </Fab>
 
           {/* /**********   Y AKI TERMINA **********/}
         </Toolbar>
       </AppBar>
-      <Drawer variant="permanent" open={open}>
+      <Drawer variant="permanent" open={open} className='cajon' >
         <DrawerHeader className='cajon' >
           <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'rtl' ? <ChevronRightIcon color='secondary' /> : <ChevronLeftIcon color='secondary'/>}
+            {theme.direction === 'rtl' ? <ChevronRightIcon color="therty" /> : <ChevronLeftIcon color="therty"/>}
           </IconButton>
         </DrawerHeader>
         <Divider />
         <List  sx={{ width: '100%', maxWidth: 360 }}
 
-      // subheader={
-      //   <ListSubheader component="div" id="nested-list-subheader">
-
-      //   </ListSubheader>
-      // }
+        onClick={preventDefault}
       >
                 <ListItemButton component="a" href='/'  >
                     <ListItemIcon >
-                        <HomeIcon color='secondary'/>
+                        <HomeIcon color='therty'/>
                     </ListItemIcon >
-                    <ListItemText color='secondary'>
+                    <ListItemText color='therty'>
                         Home
                     </ListItemText>
                 </ListItemButton>
 
                 <ListItemButton component="a" href='/places'  >
-                    <ListItemIcon color='secondary'>
-                        <RoomIcon color='secondary'/>
+                    <ListItemIcon color='therty'>
+                        <RoomIcon color='therty'/>
                     </ListItemIcon >
-                    <ListItemText color='secondary'>
+                    <ListItemText color='therty'>
                         Map
                     </ListItemText>
                 </ListItemButton>
                   {/* Lista anidada */}
-                <ListItemButton  onClick={handleClickB}>
-                    <ListItemIcon color='secondary'>
-                        <LibraryBooksIcon color='secondary'/>
-                        {openB ? <ExpandLess color='secondary' /> : <ExpandMore color='secondary' />}
-                    </ListItemIcon >
-                    <ListItemText color='secondary'>
+                  <ListItemButton component={Link} to="/catalogue">
+                     <ListItemIcon color='therty'>
+                        <LibraryBooksIcon color='therty'/>
+                     </ListItemIcon >
+                     <ListItemText color='therty'>
                         Datasets
-                    </ListItemText>
+                     </ListItemText>
+                   
+                    <IconButton  onClick={handleClickB} sx={{':hover': {backgroundColor:'primary.light'}}}>
+                    {openB ? <ExpandLess color='therty' /> : <ExpandMore color='therty' />}
+                    </IconButton>
                 </ListItemButton>
                 <Collapse in={openB} timeout="auto" unmountOnExit>
-                        <List component="div" disablePadding >
-                                <ListItemButton sx={{ pl: 4 }} component="a" href='/Consumption'>
+
+                        <List component="div" disablePadding  sx={{
+                        typography:'& > :not(style) + :not(style)'}}>
+                        
+                     
+                                <ListItemButton sx={{ pl: 4 }}  component={Link} to="/consumption">
                                      <ListItemIcon>
-                                     <ElectricalServicesIcon color="secondary" variant="dark"/>
+                                     <ElectricalServicesIcon color="therty"/>
                                      </ListItemIcon>
                                      <ListItemText primary="Consumo" />
                                 </ListItemButton>
-
-                                <ListItemButton sx={{ pl: 4 }}  component="a" href='/Courses'>
+                                
+                                
+                                <ListItemButton sx={{ pl: 4 }} component={Link} to="/courses" >
                                      <ListItemIcon>
-                                     <MenuBookIcon color="secondary" variant="dark"/>
+                                     <MenuBookIcon color="therty" />
                                      </ListItemIcon>
                                     <ListItemText primary="Cursos" />
                                 </ListItemButton>
-
-                                <ListItemButton sx={{ pl: 4 }} component="a" href='/places'>
+                                
+                                    <ListItemButton sx={{ pl: 4 }} component={Link} to="/places">
+                                        <ListItemIcon>
+                                        <MapIcon color="therty"/>
+                                        </ListItemIcon>
+                                        <ListItemText primary="Lugares" />
+                                    </ListItemButton>
+                                
+                                <ListItemButton sx={{ pl: 4 }}component={Link} to="/production">
                                      <ListItemIcon>
-                                     <MapIcon color="secondary" variant="dark"/>
-                                     </ListItemIcon>
-                                     <ListItemText primary="Lugares" />
-                                </ListItemButton>
-
-                                <ListItemButton sx={{ pl: 4 }} component="a" href='/Production'>
-                                     <ListItemIcon>
-                                     <LaptopIcon color="secondary" variant="dark"/>
+                                     <LaptopIcon color="therty"/>
                                      </ListItemIcon>
                                      <ListItemText primary="Produccion" />
                                 </ListItemButton>
-
-                                <ListItemButton sx={{ pl: 4 }}  component="a" href='/Professors'>
+                                
+                                <ListItemButton sx={{ pl: 4 }} component={Link} to="/professors" >
                                      <ListItemIcon>
-                                     < PersonIcon color="secondary" variant="dark" />
+                                     < PersonIcon color="therty" />
                                      </ListItemIcon>
                                      <ListItemText primary="Profesores" />
                                 </ListItemButton>
+                                
 
-                                <ListItemButton sx={{ pl: 4 }} component="a" href='/Publications'>
+                                <ListItemButton sx={{ pl: 4 }}component={Link} to="/publications">
                                      <ListItemIcon>
-                                     <ArticleIcon color="secondary" variant="dark" />
+                                     <ArticleIcon color="therty" />
                                      </ListItemIcon>
                                      <ListItemText primary="Publicaciones" />
                                 </ListItemButton>
+                              
                                 </List>
                                 </Collapse>
 
                   {/* fin de lista anidada */}
                 <ListItemButton component="a" href='/about'>
-                    <ListItemIcon color='secondary'>
-                        <InfoIcon color='secondary'/>
+                    <ListItemIcon color="therty">
+                        <InfoIcon color="therty"/>
                     </ListItemIcon >
-                    <ListItemText color='secondary'>
+                    <ListItemText color="therty">
                         About us
                     </ListItemText>
                 </ListItemButton>
@@ -332,6 +355,7 @@ export default function MiniDrawer(props) {
         <DrawerHeader/>
         {props.children}
       </Box>
+      
     </Box>
     </ThemeProvider>
   );
