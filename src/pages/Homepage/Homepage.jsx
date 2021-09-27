@@ -6,6 +6,8 @@ import classes from './Homepage.css'
 import Navbar from '../../components/Navegation/Navbar/Navbar.jsx'
 import Typography from '@mui/material/Typography';
 import { Button, Box } from '@mui/material'
+import {Link} from 'react-router-dom';
+
 
 function Homepage(props) {
     return (
@@ -30,7 +32,7 @@ function Homepage(props) {
         </Typography>
         <Box sx={{ display: 'flex', justifyContent: 'center', mt: 3 }}>
           <Button 
-          href="/getdata"
+          component={Link} to="/getdata"
           variant="outlined" 
           color="therty" 
           size="madium" 
