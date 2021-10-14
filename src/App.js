@@ -9,6 +9,8 @@ import Places from './pages/Places/Places'
 import Production from './pages/Production/Production'
 import Professors from './pages/Professors/Professors'
 import Publications from './pages/Publications/Publications'
+import AboutUS from './pages/AboutUS/Aboutus'
+import GetData from './pages/GetData/GetData'
 import NotFound from './pages/NotFound/NotFound.jsx'
 
 class App extends Component {
@@ -44,6 +46,8 @@ class App extends Component {
           < Route exact path="/production" component={Production} />
           < Route exact path="/professors" component={Professors} />
           < Route exact path="/publications" component={Publications} />
+          < Route exact path="/about_us" component={AboutUS} />
+          < Route exact path="/getdata" component={GetData} />
           < Route ><NotFound height={this.state.height}/></Route>
         </Switch>
       </BrowserRouter>
