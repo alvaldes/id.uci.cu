@@ -21,6 +21,7 @@ import Button from '@mui/material/Button'
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import InputBase from '@mui/material/InputBase';
 import HomeIcon from '@mui/icons-material/Home';
+import CreateIcon from '@mui/icons-material/Create';
 import RoomIcon from '@mui/icons-material/Room';
 import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
 import InfoIcon from '@mui/icons-material/Info';
@@ -39,9 +40,8 @@ import PersonIcon from '@mui/icons-material/Person';
 import ArticleIcon from '@mui/icons-material/Article';
 import {Fab} from '@mui/material'
 import {Fingerprint} from '@mui/icons-material';
-import {Link,Route} from 'react-router-dom';
+import {Link,useLocation} from 'react-router-dom';
 import Catalogue from '../../../pages/Catalogue/Catalogue';
-
 
 
 const preventDefault = (event) => event.preventDefault();
@@ -174,7 +174,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 export default function MiniDrawer(props) {
 // Para que se quede seleccionado el listButton de la  pagina donde se esta
-
+const location = useLocation();
 
   // const theme = useTheme(); no activar jamas o pierde el tema
 //inverti esto pa que quedara abierto x default 
@@ -257,33 +257,48 @@ export default function MiniDrawer(props) {
       >
                 <ListItemButton component={Link} to='/'  >
                     <ListItemIcon >
-                        <HomeIcon color='therty'/>
+                        <HomeIcon color={'/'=== location.pathname ? 'secondary': 'therty'}/>
                     </ListItemIcon >
-                    <ListItemText color='therty'>
+                    <ListItemText >
+                    <Typography color= {'/'=== location.pathname ? 'secondary': 'therty'}>
                         Home
+                        </Typography>
                     </ListItemText>
                 </ListItemButton>
 
                 <ListItemButton component={Link} to='/places'  >
-                    <ListItemIcon color='therty'>
-                        <RoomIcon color='therty'/>
+                    <ListItemIcon >
+                        <RoomIcon color={'/places'=== location.pathname ? 'secondary': 'therty'}/>
                     </ListItemIcon >
-                    <ListItemText color='therty'>
+                    <ListItemText >
+                    <Typography color= {'/places'=== location.pathname ? 'secondary': 'therty'}>
                         Map
+                        </Typography>
                     </ListItemText>
                 </ListItemButton>
+                < ListItemButton component={Link} to="/catalogue">
+                    <ListItemIcon>
+                        <LibraryBooksIcon color={'/catalogue'=== location.pathname ? 'secondary': 'therty'}/>
+                    </ListItemIcon >
+                    <ListItemText>
+                      <Typography color= {'/catalogue'=== location.pathname ? 'secondary': 'therty'}>
+                        Catálogo
+                      </Typography>
+                    </ListItemText>
+                </ListItemButton>
+
                   {/* Lista anidada */}
-                  <ListItemButton component={Link} to="/catalogue">
+                  <ListItemButton  onClick={handleClickB} sx={{':hover': {backgroundColor:'primary.light'}}}>
+                  
+
                      <ListItemIcon color='therty'>
-                        <LibraryBooksIcon color='therty'/>
+                        <CreateIcon color ='therty'/>
                      </ListItemIcon >
                      <ListItemText color='therty'>
-                        Datasets
+                        Gestionar 
                      </ListItemText>
-                   
-                    <IconButton  onClick={handleClickB} sx={{':hover': {backgroundColor:'primary.light'}}}>
-                    {openB ? <ExpandLess color='therty' /> : <ExpandMore color='therty' />}
-                    </IconButton>
+                     {openB ? <ExpandLess/> : <ExpandMore />}
+                    
                 </ListItemButton>
                 <Collapse in={openB} timeout="auto" unmountOnExit>
 
@@ -293,46 +308,58 @@ export default function MiniDrawer(props) {
                      
                                 <ListItemButton sx={{ pl: 4 }}  component={Link} to="/consumption">
                                      <ListItemIcon>
-                                     <ElectricalServicesIcon color="therty"/>
+                                     <ElectricalServicesIcon color={'/consumption'=== location.pathname ? 'secondary': 'therty'}/>
                                      </ListItemIcon>
+                                    <Typography color= {'/consumption'=== location.pathname ? 'secondary': 'therty'}>
                                      <ListItemText primary="Consumo" />
+                                     </Typography>
                                 </ListItemButton>
                                 
                                 
                                 <ListItemButton sx={{ pl: 4 }} component={Link} to="/courses" >
                                      <ListItemIcon>
-                                     <MenuBookIcon color="therty" />
+                                     <MenuBookIcon color={'/courses'=== location.pathname ? 'secondary': 'therty'} />
                                      </ListItemIcon>
+                                     <Typography color= {'/courses'=== location.pathname ? 'secondary': 'therty'}>
                                     <ListItemText primary="Cursos" />
+                                    </Typography>
                                 </ListItemButton>
                                 
                                     <ListItemButton sx={{ pl: 4 }} component={Link} to="/places">
                                         <ListItemIcon>
-                                        <MapIcon color="therty"/>
+                                        <MapIcon color={'/places'=== location.pathname ? 'secondary': 'therty'}/>
                                         </ListItemIcon>
+                                        <Typography color= {'/places'=== location.pathname ? 'secondary': 'therty'}>
                                         <ListItemText primary="Lugares" />
+                                        </Typography>
                                     </ListItemButton>
                                 
                                 <ListItemButton sx={{ pl: 4 }}component={Link} to="/production">
                                      <ListItemIcon>
-                                     <LaptopIcon color="therty"/>
+                                     <LaptopIcon color={'/production'=== location.pathname ? 'secondary': 'therty'}/>
                                      </ListItemIcon>
+                                     <Typography color= {'/production'=== location.pathname ? 'secondary': 'therty'}>
                                      <ListItemText primary="Produccion" />
+                                     </Typography>
                                 </ListItemButton>
                                 
                                 <ListItemButton sx={{ pl: 4 }} component={Link} to="/professors" >
                                      <ListItemIcon>
-                                     < PersonIcon color="therty" />
+                                     < PersonIcon color={'/professors'=== location.pathname ? 'secondary': 'therty'} />
                                      </ListItemIcon>
+                                     <Typography color= {'/professors'=== location.pathname ? 'secondary': 'therty'}>
                                      <ListItemText primary="Profesores" />
+                                     </Typography>
                                 </ListItemButton>
                                 
 
                                 <ListItemButton sx={{ pl: 4 }}component={Link} to="/publications">
                                      <ListItemIcon>
-                                     <ArticleIcon color="therty" />
+                                     <ArticleIcon color={'/publications'=== location.pathname ? 'secondary': 'therty'} />
                                      </ListItemIcon>
+                                     <Typography color= {'/publications'=== location.pathname ? 'secondary': 'therty'}>
                                      <ListItemText primary="Publicaciones" />
+                                     </Typography>
                                 </ListItemButton>
                               
                                 </List>
@@ -341,10 +368,12 @@ export default function MiniDrawer(props) {
                   {/* fin de lista anidada */}
                 <ListItemButton component={Link} to='/about'>
                     <ListItemIcon color="therty">
-                        <InfoIcon color="therty"/>
+                        <InfoIcon color={'/about'=== location.pathname ? 'secondary': 'therty'}/>
                     </ListItemIcon >
                     <ListItemText color="therty">
+                    <Typography color= {'/about'=== location.pathname ? 'secondary': 'therty'}>
                         About us
+                        </Typography>
                     </ListItemText>
                 </ListItemButton>
 
