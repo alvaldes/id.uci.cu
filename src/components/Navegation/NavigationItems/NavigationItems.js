@@ -13,7 +13,7 @@ const navigationItems = () => (
         <NavigationItem link="/catalogue">
             Datasets
         </NavigationItem>
-        <NavigationItem link="/about">
+        <NavigationItem link="/about_us">
             AboutUS
         </NavigationItem>
         {/* <NavigationItem link="/map">Map</NavigationItem> */}

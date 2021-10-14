@@ -42,7 +42,7 @@ import {Fab} from '@mui/material'
 import {Fingerprint} from '@mui/icons-material';
 import {Link,useLocation} from 'react-router-dom';
 import Catalogue from '../../../pages/Catalogue/Catalogue';
-
+import DownloadRoundedIcon from '@mui/icons-material/DownloadRounded';
 
 const preventDefault = (event) => event.preventDefault();
 //grid de los iconos del final del nav bar
@@ -194,198 +194,320 @@ const location = useLocation();
 
   return (
     <ThemeProvider theme={theme}>
-    <Box sx={{ display: 'flex' }}>
-      <CssBaseline />
-      <AppBar position="fixed" open={open}>
-        <Toolbar>
-          <IconButton
-           color="therty"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            sx={{
-              marginRight: '36px',
-              ...(open && { display: 'none' }),
-            }}
-          >
-            <MenuIcon />
-          </IconButton>
+      <Box sx={{ display: "flex" }}>
+        <CssBaseline />
+        <AppBar position="fixed" open={open}>
+          <Toolbar>
+            <IconButton
+              color="therty"
+              aria-label="open drawer"
+              onClick={handleDrawerOpen}
+              edge="start"
+              sx={{
+                marginRight: "36px",
+                ...(open && { display: "none" }),
+              }}
+            >
+              <MenuIcon />
+            </IconButton>
+            
+            <IconButton 
+              color="therty"
+              onClick={handleDrawerClose}
+              edge="start"
+              sx={{
+                marginRight: "36px",
+                ...(!open && { display: "none" }),
+              }}
+              >
+              <ChevronLeftIcon color="therty" />
+            </IconButton>
 
-          {/* /**********   AQUI COMIENZA TU TOOLBAR    ************/}
-          {/* <Typography Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          UCId
-          </Typography> */}
-          <Box sx={{ flexGrow: 1 }}>
-            <Logo class= 'logoDrawer'/>
-          </Box >
-          <Search>
-          <SearchIconWrapper>
-          <SearchIcon />
-          </SearchIconWrapper>
-          <StyledInputBase
+            {/* /**********   AQUI COMIENZA TU TOOLBAR    ************/}
+            {/* <Typography Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            UCId
+            </Typography> */}
+            <Box sx={{ flexGrow: 1 }}>
+              <Logo class="logoDrawer" />
+            </Box>
+            <Search>
+              <SearchIconWrapper>
+                <SearchIcon />
+              </SearchIconWrapper>
+              <StyledInputBase />
+            </Search>
 
-          />
-          </Search>
+            {/* <Button variant= 'contained' color='therty' sx={{mr:2}} borderRadius='90%' >
+            Login
+            </Button>
+            <AccountCircleIcon/> */}
+            <Fab
+              variant="extended"
+              size="small"
+              color="therty"
+              sx={{ px: 4 }}
+              component={Link}
+              to="/login"
+            >
+              Login
+              <Fingerprint sx={{ ml: 1 }} />
+            </Fab>
+            </Toolbar>
+            {/* /**********   Y AKI TERMINA **********/}
+        </AppBar>
+        <Drawer variant="permanent" open={open} className="cajon">
+          
+          <List sx={{ width: "100%", maxWidth: 360 }} onClick={preventDefault}>
+            <ListItemButton component={Link} to="/">
+              <ListItemIcon>
+                <HomeIcon
+                  color={"/" === location.pathname ? "secondary" : "therty"}
+                />
+              </ListItemIcon>
+              <ListItemText>
+                <Typography
+                  color={"/" === location.pathname ? "secondary" : "therty"}
+                >
+                  Inicio
+                </Typography>
+              </ListItemText>
+            </ListItemButton>
+            <Divider />
+            <ListItemButton component={Link} to="/places">
+              <ListItemIcon>
+                <RoomIcon
+                  color={
+                    "/places" === location.pathname ? "secondary" : "therty"
+                  }
+                />
+              </ListItemIcon>
+              <ListItemText>
+                <Typography
+                  color={
+                    "/places" === location.pathname ? "secondary" : "therty"
+                  }
+                >
+                  Mapa
+                </Typography>
+              </ListItemText>
+            </ListItemButton>
+            <ListItemButton component={Link} to="/catalogue">
+              <ListItemIcon>
+                <LibraryBooksIcon
+                  color={
+                    "/catalogue" === location.pathname ? "secondary" : "therty"
+                  }
+                />
+              </ListItemIcon>
+              <ListItemText>
+                <Typography
+                  color={
+                    "/catalogue" === location.pathname ? "secondary" : "therty"
+                  }
+                >
+                  Catálogo
+                </Typography>
+              </ListItemText>
+            </ListItemButton>
 
-          {/* <Button variant= 'contained' color='therty' sx={{mr:2}} borderRadius='90%' >
-          Login
-          </Button>
-          <AccountCircleIcon/> */}
-          <Fab 
-                variant="extended" 
-                size="small" 
-                color="therty" 
-                sx={{ px: 4}} 
-                component={Link} to="/login">
-                    Login
-                    <Fingerprint sx={{ ml: 1 }}/>
-                </Fab>
-
-          {/* /**********   Y AKI TERMINA **********/}
-        </Toolbar>
-      </AppBar>
-      <Drawer variant="permanent" open={open} className='cajon' >
-        <DrawerHeader className='cajon' >
-          <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'rtl' ? <ChevronRightIcon color="therty" /> : <ChevronLeftIcon color="therty"/>}
-          </IconButton>
-        </DrawerHeader>
-        <Divider />
-        <List  sx={{ width: '100%', maxWidth: 360 }}
-
-        onClick={preventDefault}
-      >
-                <ListItemButton component={Link} to='/'  >
-                    <ListItemIcon >
-                        <HomeIcon color={'/'=== location.pathname ? 'secondary': 'therty'}/>
-                    </ListItemIcon >
-                    <ListItemText >
-                    <Typography color= {'/'=== location.pathname ? 'secondary': 'therty'}>
-                        Home
-                        </Typography>
-                    </ListItemText>
+            {/* Lista anidada */}
+            <ListItemButton
+              onClick={handleClickB}
+              sx={{ ":hover": { backgroundColor: "primary.light" } }}
+            >
+              <ListItemIcon color="therty">
+                <CreateIcon color="therty" />
+              </ListItemIcon>
+              <ListItemText color="therty">Gestionar</ListItemText>
+              {openB ? <ExpandLess /> : <ExpandMore />}
+            </ListItemButton>
+            <Collapse in={openB} timeout="auto" unmountOnExit>
+              <List
+                component="div"
+                disablePadding
+                sx={{ typography: "& > :not(style) + :not(style)" }}
+              >
+                <ListItemButton
+                  sx={{ pl: 4 }}
+                  component={Link}
+                  to="/consumption"
+                >
+                  <ListItemIcon>
+                    <ElectricalServicesIcon
+                      color={
+                        "/consumption" === location.pathname
+                          ? "secondary"
+                          : "therty"
+                      }
+                    />
+                  </ListItemIcon>
+                  <Typography
+                    color={
+                      "/consumption" === location.pathname
+                        ? "secondary"
+                        : "therty"
+                    }
+                  >
+                    <ListItemText primary="Consumo" />
+                  </Typography>
                 </ListItemButton>
 
-                <ListItemButton component={Link} to='/places'  >
-                    <ListItemIcon >
-                        <RoomIcon color={'/places'=== location.pathname ? 'secondary': 'therty'}/>
-                    </ListItemIcon >
-                    <ListItemText >
-                    <Typography color= {'/places'=== location.pathname ? 'secondary': 'therty'}>
-                        Map
-                        </Typography>
-                    </ListItemText>
-                </ListItemButton>
-                < ListItemButton component={Link} to="/catalogue">
-                    <ListItemIcon>
-                        <LibraryBooksIcon color={'/catalogue'=== location.pathname ? 'secondary': 'therty'}/>
-                    </ListItemIcon >
-                    <ListItemText>
-                      <Typography color= {'/catalogue'=== location.pathname ? 'secondary': 'therty'}>
-                        Catálogo
-                      </Typography>
-                    </ListItemText>
+                <ListItemButton sx={{ pl: 4 }} component={Link} to="/courses">
+                  <ListItemIcon>
+                    <MenuBookIcon
+                      color={
+                        "/courses" === location.pathname ? "secondary" : "therty"
+                      }
+                    />
+                  </ListItemIcon>
+                  <Typography
+                    color={
+                      "/courses" === location.pathname ? "secondary" : "therty"
+                    }
+                  >
+                    <ListItemText primary="Cursos" />
+                  </Typography>
                 </ListItemButton>
 
-                  {/* Lista anidada */}
-                  <ListItemButton  onClick={handleClickB} sx={{':hover': {backgroundColor:'primary.light'}}}>
-                  
-
-                     <ListItemIcon color='therty'>
-                        <CreateIcon color ='therty'/>
-                     </ListItemIcon >
-                     <ListItemText color='therty'>
-                        Gestionar 
-                     </ListItemText>
-                     {openB ? <ExpandLess/> : <ExpandMore />}
-                    
-                </ListItemButton>
-                <Collapse in={openB} timeout="auto" unmountOnExit>
-
-                        <List component="div" disablePadding  sx={{
-                        typography:'& > :not(style) + :not(style)'}}>
-                        
-                     
-                                <ListItemButton sx={{ pl: 4 }}  component={Link} to="/consumption">
-                                     <ListItemIcon>
-                                     <ElectricalServicesIcon color={'/consumption'=== location.pathname ? 'secondary': 'therty'}/>
-                                     </ListItemIcon>
-                                    <Typography color= {'/consumption'=== location.pathname ? 'secondary': 'therty'}>
-                                     <ListItemText primary="Consumo" />
-                                     </Typography>
-                                </ListItemButton>
-                                
-                                
-                                <ListItemButton sx={{ pl: 4 }} component={Link} to="/courses" >
-                                     <ListItemIcon>
-                                     <MenuBookIcon color={'/courses'=== location.pathname ? 'secondary': 'therty'} />
-                                     </ListItemIcon>
-                                     <Typography color= {'/courses'=== location.pathname ? 'secondary': 'therty'}>
-                                    <ListItemText primary="Cursos" />
-                                    </Typography>
-                                </ListItemButton>
-                                
-                                    <ListItemButton sx={{ pl: 4 }} component={Link} to="/places">
-                                        <ListItemIcon>
-                                        <MapIcon color={'/places'=== location.pathname ? 'secondary': 'therty'}/>
-                                        </ListItemIcon>
-                                        <Typography color= {'/places'=== location.pathname ? 'secondary': 'therty'}>
-                                        <ListItemText primary="Lugares" />
-                                        </Typography>
-                                    </ListItemButton>
-                                
-                                <ListItemButton sx={{ pl: 4 }}component={Link} to="/production">
-                                     <ListItemIcon>
-                                     <LaptopIcon color={'/production'=== location.pathname ? 'secondary': 'therty'}/>
-                                     </ListItemIcon>
-                                     <Typography color= {'/production'=== location.pathname ? 'secondary': 'therty'}>
-                                     <ListItemText primary="Produccion" />
-                                     </Typography>
-                                </ListItemButton>
-                                
-                                <ListItemButton sx={{ pl: 4 }} component={Link} to="/professors" >
-                                     <ListItemIcon>
-                                     < PersonIcon color={'/professors'=== location.pathname ? 'secondary': 'therty'} />
-                                     </ListItemIcon>
-                                     <Typography color= {'/professors'=== location.pathname ? 'secondary': 'therty'}>
-                                     <ListItemText primary="Profesores" />
-                                     </Typography>
-                                </ListItemButton>
-                                
-
-                                <ListItemButton sx={{ pl: 4 }}component={Link} to="/publications">
-                                     <ListItemIcon>
-                                     <ArticleIcon color={'/publications'=== location.pathname ? 'secondary': 'therty'} />
-                                     </ListItemIcon>
-                                     <Typography color= {'/publications'=== location.pathname ? 'secondary': 'therty'}>
-                                     <ListItemText primary="Publicaciones" />
-                                     </Typography>
-                                </ListItemButton>
-                              
-                                </List>
-                                </Collapse>
-
-                  {/* fin de lista anidada */}
-                <ListItemButton component={Link} to='/about'>
-                    <ListItemIcon color="therty">
-                        <InfoIcon color={'/about'=== location.pathname ? 'secondary': 'therty'}/>
-                    </ListItemIcon >
-                    <ListItemText color="therty">
-                    <Typography color= {'/about'=== location.pathname ? 'secondary': 'therty'}>
-                        About us
-                        </Typography>
-                    </ListItemText>
+                <ListItemButton sx={{ pl: 4 }} component={Link} to="/places">
+                  <ListItemIcon>
+                    <MapIcon
+                      color={
+                        "/places" === location.pathname ? "secondary" : "therty"
+                      }
+                    />
+                  </ListItemIcon>
+                  <Typography
+                    color={
+                      "/places" === location.pathname ? "secondary" : "therty"
+                    }
+                  >
+                    <ListItemText primary="Lugares" />
+                  </Typography>
                 </ListItemButton>
 
-            </List>
-      </Drawer>
-      {/* AQUI EMPIEZA EL CONTENEDOR */}
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-        <DrawerHeader/>
-        {props.children}
+                <ListItemButton
+                  sx={{ pl: 4 }}
+                  component={Link}
+                  to="/production"
+                >
+                  <ListItemIcon>
+                    <LaptopIcon
+                      color={
+                        "/production" === location.pathname
+                          ? "secondary"
+                          : "therty"
+                      }
+                    />
+                  </ListItemIcon>
+                  <Typography
+                    color={
+                      "/production" === location.pathname
+                        ? "secondary"
+                        : "therty"
+                    }
+                  >
+                    <ListItemText primary="Produccion" />
+                  </Typography>
+                </ListItemButton>
+
+                <ListItemButton
+                  sx={{ pl: 4 }}
+                  component={Link}
+                  to="/professors"
+                >
+                  <ListItemIcon>
+                    <PersonIcon
+                      color={
+                        "/professors" === location.pathname
+                          ? "secondary"
+                          : "therty"
+                      }
+                    />
+                  </ListItemIcon>
+                  <Typography
+                    color={
+                      "/professors" === location.pathname
+                        ? "secondary"
+                        : "therty"
+                    }
+                  >
+                    <ListItemText primary="Profesores" />
+                  </Typography>
+                </ListItemButton>
+
+                <ListItemButton
+                  sx={{ pl: 4 }}
+                  component={Link}
+                  to="/publications"
+                >
+                  <ListItemIcon>
+                    <ArticleIcon
+                      color={
+                        "/publications" === location.pathname
+                          ? "secondary"
+                          : "therty"
+                      }
+                    />
+                  </ListItemIcon>
+                  <Typography
+                    color={
+                      "/publications" === location.pathname
+                        ? "secondary"
+                        : "therty"
+                    }
+                  >
+                    <ListItemText primary="Publicaciones" />
+                  </Typography>
+                </ListItemButton>
+              </List>
+            </Collapse>
+
+            {/* fin de lista anidada */}
+            <ListItemButton component={Link} to="/getdata">
+              <ListItemIcon>
+                <DownloadRoundedIcon
+                  color={
+                    "/getdata" === location.pathname ? "secondary" : "therty"
+                  }
+                />
+              </ListItemIcon>
+              <ListItemText>
+                <Typography
+                  color={
+                    "/getdata" === location.pathname ? "secondary" : "therty"
+                  }
+                >
+                  Obtener Datos
+                </Typography>
+              </ListItemText>
+            </ListItemButton>
+            <ListItemButton component={Link} to="/about_us">
+              <ListItemIcon>
+                <InfoIcon
+                  color={
+                    "/about_us" === location.pathname ? "secondary" : "therty"
+                  }
+                />
+              </ListItemIcon>
+              <ListItemText>
+                <Typography
+                  color={
+                    "/about_us" === location.pathname ? "secondary" : "therty"
+                  }
+                >
+                  Sobre Nosotros
+                </Typography>
+              </ListItemText>
+            </ListItemButton>
+          </List>
+        </Drawer>
+        {/* AQUI EMPIEZA EL CONTENEDOR */}
+        <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+          <DrawerHeader />
+          {props.children}
+        </Box>
       </Box>
-      
-    </Box>
     </ThemeProvider>
   );
 }
