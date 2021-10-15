@@ -21,14 +21,14 @@ function Homepage(props) {
           mt={7}
           mb={0}
           sx={{ textAlign: 'center', fontWeight: 'light'}}>
-          Our Job is to make the information
+          Nuestro trabajo es hacer que la información
         </Typography>
         <Typography 
           variant="h6" 
           gutterBottom component="div" 
           color = "therty.main"
           sx={{ textAlign: 'center', fontWeight: 'medium'}}>
-          more accessible to YOU
+          sea más accesible para Tí
         </Typography>
         <Box sx={{ display: 'flex', justifyContent: 'center', mt: 3 }}>
           <Button 
@@ -37,7 +37,7 @@ function Homepage(props) {
           color="therty" 
           size="madium" 
           sx={{ px: 6 ,borderRadius: 5, border: 2 }}>
-            Get Data
+            Obtener Datos
           </Button>
         </Box>
         </ThemeProvider>

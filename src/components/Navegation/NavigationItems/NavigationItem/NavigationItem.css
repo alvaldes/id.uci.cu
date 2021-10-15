@@ -1,13 +1,11 @@
 .NavigationItem {
-    margin: 0px 0;
+    margin: 0 0;
     box-sizing: border-box;
-    display: block;
-    width: 100%;
 }
 
 .NavigationItem a div{
     text-decoration: none;
-    margin-left: 25px;
+    
 }
 
 .NavigationItem a div:hover,

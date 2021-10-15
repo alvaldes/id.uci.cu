@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { styled, useTheme, alpha } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import Box from '@mui/material/Box';
 import MuiDrawer from '@mui/material/Drawer';
 import MuiAppBar from '@mui/material/AppBar';
@@ -175,7 +176,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 export default function MiniDrawer(props) {
 // Para que se quede seleccionado el listButton de la  pagina donde se esta
 const location = useLocation();
-
+const matches = useMediaQuery('(min-width:950px)');
   // const theme = useTheme(); no activar jamas o pierde el tema
 //inverti esto pa que quedara abierto x default 
   const [open, setOpen] = React.useState(true);
@@ -249,8 +250,8 @@ const location = useLocation();
               component={Link}
               to="/login"
             >
-              Login
-              <Fingerprint sx={{ ml: 1 }} />
+              {matches? "Iniciar Sesión": ""}
+              <Fingerprint sx={{ ...(matches && {ml: 1}) }} />
             </Fab>
             </Toolbar>
             {/* /**********   Y AKI TERMINA **********/}

@@ -20,8 +20,8 @@ return(
     align='center' 
     mb={2} 
     sx={{ fontWeight: 'bold'}} 
-    >DATASETS</Typography>
-    <Box sx={{ justifyContent: 'center', backgroundColor: 'primary', my:'4' }}> </Box>
+    >CATÁLOGO</Typography>
+    <Box sx={{ justifyContent: 'center', backgroundColor: 'primary', my:'30px' }}> </Box>
 
     <Grid sx={{ flexGrow: 1 }} justifyContent="center" container spacing={4} columns={{ xs: 4, sm: 8, md: 12 }}>
       <Grid item xs={4} sm={4} md={4}>
