@@ -4,7 +4,7 @@ import theme from '../../themeConfig'
 import Drawer from '../../components/Navegation/Drawer/MiniDrawer'
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
+import {Link} from 'react-router-dom';
 import '../AboutUS/AboutUS.css'
 import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
@@ -27,9 +27,24 @@ const getdata = () => {
               width="80%"
               margin="auto"
             >
-              Para descargar los datos se accede a la página de catálogo donde
-              se encuentran todos los datasets disponibles y se escoge el que 
-              se desea descargar en uno de los formatos disponibles.
+              Id.uci.cu es una plataforma que, además de vincular los datos de
+              los 7 Datasets con los que cuenta, también ofrece la posibilidad
+              de descargar los datos. Se accede a la página de{" "}
+              <Link underline="hover" to="/catalogue">Catálogo</Link> donde se encuentran los
+              conjuntos de datos en los formatos de descarga disponible. Para
+              obtenerlos se hace clic en el botón del formato en que se desea
+              descargar una vez accedido al Dataset.
+            </Typography>
+            <Typography
+              variant="h6"
+              component="div"
+              align="center"
+              color="therty.dark"
+              width="80%"
+              margin="auto"
+            >
+              Con Id.uci.cu se puede obtener los datos abiertos y enlazados con
+              tan solo hacer un clic.
             </Typography>
             <Typography variant="h4" component="div" align="center" mt={5}>
               Formatos Disponibles

@@ -22,6 +22,8 @@ import ImgYoan from '../../assets/team/yoan.jpg'
 import ImgAngel from '../../assets/team/angel.png'
 import ImgDiane from '../../assets/team/diane.png'
 import ImgEduardo from '../../assets/team/eduardo.jpg'
+import ImgAmanda from '../../assets/team/amanda.jpg'
+import ImgHenry from '../../assets/team/henry.jpg'
 
 
 const aboutus = () => {
@@ -136,31 +138,31 @@ const aboutus = () => {
               <TeamCard
                 img={ImgAngel}
                 name="Pablo E. Arias Gonzáles"
-                email="angelluis2605@gamil.com"
+                email="pearias@estudiantes.uci.cu"
                 github="pabloearias"
               />
               <TeamCard
-                img={ImgAngel}
+                img={ImgHenry}
                 name="Henry Pino Álvarez"
-                email="angelluis2605@gamil.com"
+                email="hlpino@estudiantes.uci.cu"
                 github="hlpino"
               />
               <TeamCard
                 img={ImgAngel}
                 name="Daniela Gutiérrez Capó"
-                email="angelluis2605@gamil.com"
+                email="dagutierrez@estudiantes.uci.cu"
                 github="dagutierre"
               />
               <TeamCard
-                img={ImgAngel}
+                img={ImgAmanda}
                 name="Amanda Rivero García"
-                email="angelluis2605@gamil.com"
-                github="alvaldes"
+                email="argarcia@estudiantes.uci.cu"
+                github="argarcia"
               />
               <TeamCard
                 img={ImgEduardo}
                 name="Eduardo Sánchez Horta"
-                email="angelluis2605@gamil.com"
+                email="eshorta@estudiantes.uci.cu"
                 github="eshorta96"
               />
             </Box>
