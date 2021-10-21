@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/id.uci.cu/static/css/main.8c7ae808.chunk.css",
-    "main.js": "/id.uci.cu/static/js/main.0a6a191f.chunk.js",
-    "main.js.map": "/id.uci.cu/static/js/main.0a6a191f.chunk.js.map",
+    "main.js": "/id.uci.cu/static/js/main.ba6ad96a.chunk.js",
+    "main.js.map": "/id.uci.cu/static/js/main.ba6ad96a.chunk.js.map",
     "runtime-main.js": "/id.uci.cu/static/js/runtime-main.c07a1e0d.js",
     "runtime-main.js.map": "/id.uci.cu/static/js/runtime-main.c07a1e0d.js.map",
     "static/js/2.d5a4f7ea.chunk.js": "/id.uci.cu/static/js/2.d5a4f7ea.chunk.js",
@@ -24,6 +24,6 @@
     "static/js/runtime-main.c07a1e0d.js",
     "static/js/2.d5a4f7ea.chunk.js",
     "static/css/main.8c7ae808.chunk.css",
-    "static/js/main.0a6a191f.chunk.js"
+    "static/js/main.ba6ad96a.chunk.js"
   ]
 }
