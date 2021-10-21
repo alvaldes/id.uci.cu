@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/id.uci.cu/static/css/main.8c7ae808.chunk.css",
+    "main.js": "/id.uci.cu/static/js/main.cefc65c5.chunk.js",
+    "main.js.map": "/id.uci.cu/static/js/main.cefc65c5.chunk.js.map",
+    "runtime-main.js": "/id.uci.cu/static/js/runtime-main.c07a1e0d.js",
+    "runtime-main.js.map": "/id.uci.cu/static/js/runtime-main.c07a1e0d.js.map",
+    "static/js/2.d5a4f7ea.chunk.js": "/id.uci.cu/static/js/2.d5a4f7ea.chunk.js",
+    "static/js/2.d5a4f7ea.chunk.js.map": "/id.uci.cu/static/js/2.d5a4f7ea.chunk.js.map",
+    "index.html": "/id.uci.cu/index.html",
+    "static/css/main.8c7ae808.chunk.css.map": "/id.uci.cu/static/css/main.8c7ae808.chunk.css.map",
+    "static/js/2.d5a4f7ea.chunk.js.LICENSE.txt": "/id.uci.cu/static/js/2.d5a4f7ea.chunk.js.LICENSE.txt",
+    "static/media/NotFound.css": "/id.uci.cu/static/media/NotFound.35788d24.png",
+    "static/media/amanda.4b1f546c.jpg": "/id.uci.cu/static/media/amanda.4b1f546c.jpg",
+    "static/media/angel.6d4bb3ad.png": "/id.uci.cu/static/media/angel.6d4bb3ad.png",
+    "static/media/diane.f83ffb64.png": "/id.uci.cu/static/media/diane.f83ffb64.png",
+    "static/media/eduardo.09bffa4c.jpg": "/id.uci.cu/static/media/eduardo.09bffa4c.jpg",
+    "static/media/Homepage.css": "/id.uci.cu/static/media/fondo.3469682f.png",
+    "static/media/henry.7e6867ca.jpg": "/id.uci.cu/static/media/henry.7e6867ca.jpg",
+    "static/media/logo.a84c1758.png": "/id.uci.cu/static/media/logo.a84c1758.png",
+    "static/media/yoan.06b45fcd.jpg": "/id.uci.cu/static/media/yoan.06b45fcd.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c07a1e0d.js",
+    "static/js/2.d5a4f7ea.chunk.js",
+    "static/css/main.8c7ae808.chunk.css",
+    "static/js/main.cefc65c5.chunk.js"
+  ]
+}
